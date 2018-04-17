@@ -8,12 +8,15 @@ function Ticket(props){
       <style jsx>{`
           #ticket-template{
             width: 300px;
-            height: 125px;
+            height: 120px;
             border: 1px solid black;
             background-color: dodgerblue;
             margin: auto;
             margin-top: 20px;
             text-align: center;
+          }
+          h2, h3, p{
+            margin: 10px;
           }
         `}
       </style>

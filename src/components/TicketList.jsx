@@ -4,7 +4,7 @@ import Ticket from './Ticket';
 function TicketList(){
   return(
     <Ticket
-      location="R2" name="Josh" issue="Can't find a job"/>
+      location="[Name]" name="[Location]" issue="[Issue]"/>
   );
 }
 
