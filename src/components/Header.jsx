@@ -6,6 +6,7 @@ let styles = {
   header: {
     display: "grid",
     backgroundColor: bloodOrange,
+    height: "48",
     gridTemplateColumns: "1fr 4fr 1fr 4fr 1fr",
     margin: "auto",
     textAlign: "center"
@@ -14,16 +15,23 @@ let styles = {
     margin: "auto",
     textAlign: "center"
   }
-
 }
 
 function Header(){
   return(
     <div>
+      <style>{`
+          #queue{
+            margin-top: auto;
+            margin-bottom: auto;
+            color: white;
+          }
+      `}
+      </style>
       <div style={styles.header}>
         <p style={styles.headerText}><Link to="/">Home</Link></p>
         <br/>
-        <h2>Queue</h2>
+        <h2 id="queue">Queue</h2>
         <br/>
         <p style={styles.headerText}><Link to="/newticket">Add ticket</Link></p>
       </div>

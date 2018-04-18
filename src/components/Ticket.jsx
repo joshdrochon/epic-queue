@@ -14,8 +14,12 @@ function Ticket(props){
             margin-top: 20px;
             text-align: center;
           }
-          h2, h3, p{
+          #ticket-template h2, h3, p{
             margin: 10px;
+          }
+          #ticket-template:hover{
+            transform: scale(1.05);
+            box-shadow: 10px 5px 5px gray;
           }
         `}
       </style>

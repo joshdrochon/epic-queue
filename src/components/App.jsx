@@ -1,8 +1,13 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer';
 import TicketList from './TicketList';
-import { Switch, Route} from 'react-router-dom';
 import NewTicketForm from './NewTicketForm';
+import Admin from './Admin';
+
+import { Link } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
+
 
 function App(){
   return(
@@ -11,19 +16,30 @@ function App(){
         *{
             margin:0px;
             padding:0px;
+            font-family: helvetica;
+            font-weight: lighter;
           }
           body{
             background-color: lightgray;
           }
+          #footer{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #FE5000;
+            text-align: center;
+            height: 38px;
+          }
         `}
       </style>
-      <div>
         <Header/>
         <Switch>
           <Route exact path='/' component={TicketList}/>
           <Route path='/newticket' component={NewTicketForm}/>
+          <Route path='/admin' component={Admin}/>
         </Switch>
-      </div>
+        <Footer/>
     </div>
   );
 }
