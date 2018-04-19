@@ -57,7 +57,6 @@ function NewTicketForm(){
           #btn:hover{
             background-color: ghostwhite;
             cursor: pointer;
-            border: 1px solid white;
           }
         `}
       </style>
@@ -73,7 +72,7 @@ function NewTicketForm(){
         <textarea
           id='issue'
           placeholder=' What is going on?'/>
-        <button id="btn" onClick={(e) => console.log(e)} type='submit'>Get me someone!</button>
+        <button id="btn" onClick={() => alert("Aw, shucks no one home!")} type='submit'>Help!</button>
       </form>
     </div>
   );
