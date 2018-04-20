@@ -26,6 +26,10 @@ function Header(){
             margin-bottom: auto;
             color: white;
           }
+          a{
+            color: white;
+            text-decoration: none;
+          }
       `}
       </style>
       <div style={styles.header}>

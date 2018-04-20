@@ -6,24 +6,27 @@ function Ticket(props){
   return(
     <div>
       <style jsx>{`
-          #ticket-template{
-            width: 300px;
+          #ticket{
+            width: 40%;
             border: 1px solid black;
             background-color: dodgerblue;
             margin: auto;
             margin-top: 20px;
             text-align: center;
+            padding: 20px;
+            color: ghostwhite;
           }
           #ticket-template h2, h3, p{
             margin: 10px;
           }
-          #ticket-template:hover{
+          #ticket:hover{
             transform: scale(1.05);
             box-shadow: 10px 5px 5px gray;
+            cursor: pointer;
           }
         `}
       </style>
-      <div id="ticket-template">
+      <div id="ticket">
         <h3>{props.no}</h3>
         <h2>{props.location}</h2>
         <h3>{props.name}</h3>

@@ -6,7 +6,7 @@ let styles = {
     backgroundColor:"dodgerblue",
     margin: "auto",
     marginTop: "75px",
-    width: "350px",
+    width: "40%",
     height: "300px",
     border: "1px solid black",
     textAlign: "center"

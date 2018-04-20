@@ -3,19 +3,19 @@ import Ticket from './Ticket';
 
 let masterTicketList = [
   {
-    no: '47',
+    no: '#47',
     name: '[Name goes here]',
     location: '[Location goes here]',
     issue: '[Issue goes here]'
   },
   {
-    no: '48',
+    no: '#48',
     name: '[Name goes here]',
     location: '[Location goes here]',
     issue: '[Issue goes here]'
   },
   {
-    no: '49',
+    no: '#49',
     name: '[Name goes here]',
     location: '[Location goes here]',
     issue: '[Issue goes here]'

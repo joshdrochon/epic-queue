@@ -32,7 +32,7 @@ function Admin(){
             box-shadow: 8px 5px 20px gray;
           }
           #c1:hover{
-            background-color: ghostwhite;
+            background-color: peru;
           }
           #c2:hover{
             background-color: red;

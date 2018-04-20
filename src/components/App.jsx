@@ -21,7 +21,7 @@ function App(){
             font-weight: lighter;
           }
           body{
-            background-color: lightgray;
+            background-color: white;
           }
           #footer{
             position: fixed;
