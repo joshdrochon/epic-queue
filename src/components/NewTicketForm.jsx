@@ -14,6 +14,9 @@ let styles = {
 }
 
 function NewTicketForm(){
+  function handleNewTicketFormSubmission(event){
+    event.preventDefault();
+  }
   return (
     <div>
       <style jsx>{`
@@ -66,14 +69,17 @@ function NewTicketForm(){
         <input
           type='text'
           id='name'
-          placeholder=' Pair Names'/>
+          placeholder=' Pair Names'
+          ref={(input) => {_names = input;}}/>
         <input
           type='text'
           id='location'
-          placeholder=' Location'/>
+          placeholder=' Location'
+          ref={(input) => {location = input;}}/>
         <textarea
           id='issue'
-          placeholder=" What's going on?"/>
+          placeholder=" What's going on?"
+          ref={(textarea) => {_issue = textarea;}}/>
         <button id="btn" onClick={() => alert("Aw, shucks no one home!")} type='submit'>Help!</button>
       </form>
     </div>
