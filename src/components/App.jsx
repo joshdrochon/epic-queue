@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import TicketList from './TicketList';
-import NewTicketForm from './NewTicketForm';
+import NewTicketControl from './NewTicketControl';
 import Admin from './Admin';
 import Error404 from './Error404';
 
@@ -37,7 +37,7 @@ function App(){
         <Header/>
         <Switch>
           <Route exact path='/' component={TicketList}/>
-          <Route path='/newticket' component={NewTicketForm}/>
+          <Route path='/newticket' component={NewTicketControl}/>
           <Route path='/admin' component={Admin}/>
           <Route component={Error404}/>
         </Switch>

@@ -6,8 +6,8 @@ let styles = {
     backgroundColor:"dodgerblue",
     margin: "auto",
     marginTop: "75px",
-    width: "40%",
-    height: "300px",
+    width: "55%",
+    height: "400px",
     border: "1px solid black",
     textAlign: "center"
   }
@@ -19,6 +19,7 @@ function NewTicketForm(){
       <style jsx>{`
           input {
             width: 90%;
+            height: 50px;
             display: block;
             clear: both;
             margin: auto;
@@ -36,10 +37,11 @@ function NewTicketForm(){
           textarea{
             display: block;
             width: 90%;
-            height: 120px;
+            height: 150px;
             margin: auto;
             font-size: 18px;
             border: 1px solid black;
+            padding-top: 10px;
           }
           textarea:hover{
             transform: scale(1.02);
@@ -71,7 +73,7 @@ function NewTicketForm(){
           placeholder=' Location'/>
         <textarea
           id='issue'
-          placeholder=' What is going on?'/>
+          placeholder=" What's going on?"/>
         <button id="btn" onClick={() => alert("Aw, shucks no one home!")} type='submit'>Help!</button>
       </form>
     </div>

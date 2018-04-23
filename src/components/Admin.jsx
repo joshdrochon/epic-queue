@@ -61,15 +61,15 @@ function Admin(){
         `}
       </style>
       <div id="grid" style={styles.grid}>
-        <div id="c1" style={styles.cell}>x</div>
-        <div id="c2" style={styles.cell}>x</div>
-        <div id="c3" style={styles.cell}>x</div>
-        <div id="c4" style={styles.cell}>x</div>
-        <div id="c5" style={styles.cell}>x</div>
-        <div id="c6" style={styles.cell}>x</div>
-        <div id="c7" style={styles.cell}>x</div>
-        <div id="c8" style={styles.cell}>x</div>
-        <div id="c9" style={styles.cell}>x</div>
+        <div id="c1" style={styles.cell}></div>
+        <div id="c2" style={styles.cell}></div>
+        <div id="c3" style={styles.cell}></div>
+        <div id="c4" style={styles.cell}></div>
+        <div id="c5" style={styles.cell}></div>
+        <div id="c6" style={styles.cell}></div>
+        <div id="c7" style={styles.cell}></div>
+        <div id="c8" style={styles.cell}></div>
+        <div id="c9" style={styles.cell}></div>
       </div>
     </div>
 
