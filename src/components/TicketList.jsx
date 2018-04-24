@@ -3,6 +3,7 @@ import Ticket from './Ticket';
 import PropTypes from 'prop-types';
 
 function TicketList(props){
+  console.log(props.ticketList);
   return(
     <div>
       <style>{`
@@ -14,12 +15,13 @@ function TicketList(props){
         }
       `}
       </style>
-      {props.ticketList.map((ticket, index)=>
+      {props.ticketList.map((ticket)=>
       <Ticket
         name={ticket.name}
         location={ticket.location}
         issue={ticket.issue}
-        key={index}/>
+        timeOpen={ticket.timeOpen}
+        key={ticket.id}/>
       )}
       <p id="stats">View today's statistics</p>
     </div>
