@@ -1,28 +1,8 @@
 import React from 'react';
 import Ticket from './Ticket';
+import PropTypes from 'prop-types';
 
-let masterTicketList = [
-  {
-    no: '#47',
-    name: '[Name goes here]',
-    location: '[Location goes here]',
-    issue: '[Issue goes here]'
-  },
-  {
-    no: '#48',
-    name: '[Name goes here]',
-    location: '[Location goes here]',
-    issue: '[Issue goes here]'
-  },
-  {
-    no: '#49',
-    name: '[Name goes here]',
-    location: '[Location goes here]',
-    issue: '[Issue goes here]'
-  }
-]
-
-function TicketList(){
+function TicketList(props){
   return(
     <div>
       <style>{`
@@ -34,7 +14,7 @@ function TicketList(){
         }
       `}
       </style>
-      {masterTicketList.map((ticket, index)=>
+      {props.ticketList.map((ticket, index)=>
       <Ticket
         name={ticket.name}
         location={ticket.location}
@@ -45,5 +25,9 @@ function TicketList(){
     </div>
   );
 }
+
+TicketList.propTypes = {
+  ticketList: PropTypes.array
+};
 
 export default TicketList;

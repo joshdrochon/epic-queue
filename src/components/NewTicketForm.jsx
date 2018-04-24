@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header'
+import PropTypes from 'prop-types';
 
 let styles = {
   form: {
@@ -13,18 +14,19 @@ let styles = {
   }
 }
 
-function NewTicketForm(){
+function NewTicketForm(props){
   let name = null;
   let location = null;
   let issue = null;
 
   function handleNewTicketFormSubmission(event){
-    //reset values
+    event.preventDefault();
+    props.onNewTicketCreation({names: name.value, location: location.value, issue: issue.value});
     name.value = '';
     location.value = '';
     issue.value = '';
-    event.preventDefault();
   }
+
   return (
     <div>
       <style jsx>{`
@@ -93,4 +95,9 @@ function NewTicketForm(){
     </div>
   );
 }
+
+NewTicketForm.propTypes = {
+  onNewTicketCreation: PropTypes.func
+};
+
 export default NewTicketForm;
