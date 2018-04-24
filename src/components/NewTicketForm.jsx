@@ -14,7 +14,15 @@ let styles = {
 }
 
 function NewTicketForm(){
+  let name = null;
+  let location = null;
+  let issue = null;
+
   function handleNewTicketFormSubmission(event){
+    //reset values
+    name.value = '';
+    location.value = '';
+    issue.value = '';
     event.preventDefault();
   }
   return (
@@ -65,12 +73,12 @@ function NewTicketForm(){
           }
         `}
       </style>
-      <form style={styles.form} id="form">
+      <form onSubmit={handleNewTicketFormSubmission} style={styles.form} id="form">
         <input
           type='text'
           id='name'
           placeholder=' Pair Names'
-          ref={(input) => {_names = input;}}/>
+          ref={(input) => {name = input;}}/>
         <input
           type='text'
           id='location'
@@ -79,8 +87,8 @@ function NewTicketForm(){
         <textarea
           id='issue'
           placeholder=" What's going on?"
-          ref={(textarea) => {_issue = textarea;}}/>
-        <button id="btn" onClick={() => alert("Aw, shucks no one home!")} type='submit'>Help!</button>
+          ref={(textarea) => {issue = textarea;}}/>
+        <button id="btn" type='submit'>Help!</button>
       </form>
     </div>
   );

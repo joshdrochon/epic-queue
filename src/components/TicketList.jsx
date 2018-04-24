@@ -36,9 +36,8 @@ function TicketList(){
       </style>
       {masterTicketList.map((ticket, index)=>
       <Ticket
-        no={ticket.no}
-        location={ticket.name}
-        name={ticket.location}
+        name={ticket.name}
+        location={ticket.location}
         issue={ticket.issue}
         key={index}/>
       )}

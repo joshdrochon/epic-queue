@@ -27,17 +27,16 @@ function Ticket(props){
         `}
       </style>
       <div id="ticket">
-        <h3>{props.no}</h3>
-        <h2>{props.location}</h2>
-        <h3>{props.name}</h3>
+        <h2>{props.name}</h2>
+        <h3>{props.location}</h3>
         <p><em>{props.issue}</em></p>
       </div>
     </div>
   );
 }
 Ticket.propTypes = {
-  location: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   issue: PropTypes.string.isRequired
 };
 
