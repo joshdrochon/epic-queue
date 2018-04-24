@@ -8,9 +8,9 @@ let styles = {
     margin: "auto",
     marginTop: "75px",
     width: "55%",
-    height: "400px",
+    height: "500px",
     border: "1px solid black",
-    textAlign: "center"
+    textAlign: "center",
   }
 }
 
@@ -62,35 +62,38 @@ function NewTicketForm(props){
             background-color: ghostwhite;
           }
           #btn{
-            padding: 10px;
-            width: max-content;
+            width:100px;
+            height: 70px;
+            font-size: 25px;
+            margin-top: 9%;
             border: 1px solid black;
-            position: relative;
-            top: 17px;
-            font-size: 16px;
+            box-shadow: 5px 5px 10px;
           }
           #btn:hover{
-            background-color: ghostwhite;
             cursor: pointer;
+          }
+          #btn:active{
+            transform: scale(.96);
+            box-shadow: 0px 0px 0px;
           }
         `}
       </style>
-      <form onSubmit={handleNewTicketFormSubmission} style={styles.form} id="form">
+      <form onSubmit={handleNewTicketFormSubmission} style={styles.form} id='form'>
         <input
           type='text'
           id='name'
-          placeholder=' Pair Names'
+          placeholder='Name'
           ref={(input) => {name = input;}}/>
         <input
           type='text'
           id='location'
-          placeholder=' Location'
+          placeholder='Location'
           ref={(input) => {location = input;}}/>
         <textarea
           id='issue'
-          placeholder=" What's going on?"
+          placeholder="What's going on?"
           ref={(textarea) => {issue = textarea;}}/>
-        <button id="btn" type='submit'>Help!</button>
+        <button id='btn' type='submit'>Help!</button>
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 function Ticket(props){
   return(
@@ -25,7 +25,7 @@ function Ticket(props){
           }
         `}
       </style>
-      <div id="ticket">
+      <div id='ticket'>
         <h2>{props.name}</h2>
         <h3>{props.location}</h3>
         <p><em>{props.issue}</em></p>
