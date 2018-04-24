@@ -20,7 +20,7 @@ function TicketList(props){
         name={ticket.name}
         location={ticket.location}
         issue={ticket.issue}
-        timeOpen={ticket.timeOpen}
+        formattedWaitTime={ticket.formattedWaitTime}
         key={ticket.id}/>
       )}
       <p id="stats">View today's statistics</p>

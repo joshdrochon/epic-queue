@@ -5,6 +5,7 @@ import TicketList from './TicketList';
 import NewTicketControl from './NewTicketControl';
 import Admin from './Admin';
 import Error404 from './Error404';
+import Moment from 'moment';
 
 import { Link } from 'react-router-dom';
 import { Switch, Route} from 'react-router-dom';
@@ -21,8 +22,29 @@ class App extends React.Component {
 
   handleAddingNewTicketToList(newTicket){
     let newMasterTicketList = this.state.masterTicketList.slice();
+    newTicket.formattedWaitTime = (newTicket.timeOpen).fromNow(true);
     newMasterTicketList.push(newTicket);
     this.setState({masterTicketList: newMasterTicketList});
+  }
+
+  componentDidMount(){
+    this.waitTimeUpdateTimer = setInterval(() =>
+      this.updateTicketElapsedWaitTime(),
+      10000
+    );
+  }
+
+  updateTicketElapsedWaitTime(){
+    console.log('check');
+    let newMasterTicketList = this.state.masterTicketList.slice();
+    newMasterTicketList.forEach(() =>
+      ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
+    );
+    this.setState({masterTicketList: newMasterTicketList})
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.waitTimeUpdateTimer);
   }
 
   render(){
