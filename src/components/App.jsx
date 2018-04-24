@@ -20,22 +20,19 @@ class App extends React.Component {
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
   }
 
-  handleAddingNewTicketToList(newTicket){
-    let newMasterTicketList = this.state.masterTicketList.slice();
-    newTicket.formattedWaitTime = (newTicket.timeOpen).fromNow(true);
-    newMasterTicketList.push(newTicket);
-    this.setState({masterTicketList: newMasterTicketList});
-  }
-
   componentDidMount(){
     this.waitTimeUpdateTimer = setInterval(() =>
       this.updateTicketElapsedWaitTime(),
-      10000
+      60000
     );
   }
 
+  componentWillUnmount(){
+    console.log('componentWillUnmount');
+    clearInterval(this.waitTimeUpdateTimer);
+  }
+
   updateTicketElapsedWaitTime(){
-    console.log('check');
     let newMasterTicketList = this.state.masterTicketList.slice();
     newMasterTicketList.forEach((ticket) =>
       ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
@@ -43,8 +40,11 @@ class App extends React.Component {
     this.setState({masterTicketList: newMasterTicketList})
   }
 
-  componentWillUnmount(){
-    clearInterval(this.waitTimeUpdateTimer);
+  handleAddingNewTicketToList(newTicket){
+    let newMasterTicketList = this.state.masterTicketList.slice();
+    newTicket.formattedWaitTime = (newTicket.timeOpen).fromNow(true);
+    newMasterTicketList.push(newTicket);
+    this.setState({masterTicketList: newMasterTicketList});
   }
 
   render(){

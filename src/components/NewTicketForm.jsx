@@ -22,8 +22,8 @@ function NewTicketForm(props){
   let location = null;
   let issue = null;
 
-  function handleNewTicketFormSubmission(event){
-    event.preventDefault();
+  function handleNewTicketFormSubmission(e){
+    e.preventDefault();
     props.onNewTicketCreation({name: name.value, location: location.value, issue: issue.value, id: v4(), timeOpen: new Moment()});
     name.value = '';
     location.value = '';
