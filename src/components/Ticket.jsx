@@ -1,5 +1,4 @@
 import React from 'react';
-//any component using prop-types must import this dependency
 import PropTypes from "prop-types";
 
 function Ticket(props){

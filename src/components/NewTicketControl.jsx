@@ -14,7 +14,7 @@ class NewTicketControl extends React.Component{
 	}
 	handleTsConfirmation(){
 		this.setState({formVisibleOnPage: true});
-	} //try .bind(this)
+	}
 
 	render(){
 		let currentlyVisibleContent = null;

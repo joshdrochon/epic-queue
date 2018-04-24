@@ -20,9 +20,7 @@ class App extends React.Component {
   }
 
   handleAddingNewTicketToList(newTicket){
-    let newMasterTicketList = this.state.masterTicketList.slice();//check .splice() if doesnt work
-
-    //remove handleAddingNewTicketToList method from ticketlist
+    let newMasterTicketList = this.state.masterTicketList.slice();
     newMasterTicketList.push(newTicket);
     this.setState({masterTicketList: newMasterTicketList});
   }
