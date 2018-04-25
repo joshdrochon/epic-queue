@@ -19,6 +19,7 @@ class App extends React.Component {
       masterTicketList: []
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
+    this.timer = this.timer.bind(this);
   }
 
   componentDidMount(){
@@ -28,15 +29,24 @@ class App extends React.Component {
     );
   }
 
+  timer(timePassed){
+    if(timePassed == 'a few seconds'){
+      let timePassed = document.getElementById('time-display');
+      console.log(timePassed);
+      timePassed.classList.add('primary');
+      console.log('Hurry up!');
+      return timePassed;
+    }
+  }
+
   componentWillUnmount(){
-    console.log('componentWillUnmount');
     clearInterval(this.waitTimeUpdateTimer);
   }
 
   updateTicketElapsedWaitTime(){
     let newMasterTicketList = this.state.masterTicketList.slice();
     newMasterTicketList.forEach((ticket) =>
-      ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
+      this.timer(ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true))
     );
     this.setState({masterTicketList: newMasterTicketList})
   }
@@ -62,12 +72,21 @@ class App extends React.Component {
             body{
               background-color: white;
             }
+            .primary{
+              color: #428bca;
+            }
+            .warning{
+              color: #f0ad4e;
+            }
+            .danger{
+              #d9534f;
+            }
           `}
         </style>
           <Header/>
           <Switch>
-            <Route exact path='/' render={()=><TicketList ticketList={this.state.masterTicketList} />} />
-            <Route path = '/admin' component={Admin}/>
+            <Route exact path ='/' render={()=><TicketList ticketList={this.state.masterTicketList} />} />
+            <Route path='/admin' render={(props)=><Admin ticketList={this.state.masterTicketList} currentRouterPath={props.location.pathname} />} />
             <Route path='/newticket' render={()=><NewTicketControl onNewTicketCreation={this.handleAddingNewTicketToList} />} />
             <Route path='/easteregg' component={EasterEgg}/>
             <Route component={Error404}/>

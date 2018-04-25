@@ -29,7 +29,7 @@ function Ticket(props){
         <h2>{props.name}</h2>
         <h3>{props.location}</h3>
         <p><em>{props.issue}</em></p>
-        <p>{props.formattedWaitTime}</p>
+        <p id='time-display'>{props.formattedWaitTime} ago</p>
       </div>
     </div>
   );
