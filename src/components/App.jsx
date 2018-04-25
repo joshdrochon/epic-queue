@@ -30,13 +30,13 @@ class App extends React.Component {
   }
 
   timer(timePassed){
-    if(timePassed == 'a few seconds'){
-      let timePassed = document.getElementById('time-display');
-      console.log(timePassed);
-      timePassed.classList.add('primary');
-      console.log('Hurry up!');
-      return timePassed;
+    timePassed = document.getElementById('time-display');
+    if(timePassed == 'a minute'){
+      timePassed.classList.add('warning');
+    }else{
+      timePassed.classList.add('danger');
     }
+    return timePassed;
   }
 
   componentWillUnmount(){
