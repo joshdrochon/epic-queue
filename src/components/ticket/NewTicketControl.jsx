@@ -1,6 +1,6 @@
 import React from 'react';
 import NewTicketForm from './NewTicketForm';
-import ConfirmationQuestions from './ConfirmationQuestions';
+import ConfirmationQuestions from '../ux/ConfirmationQuestions';
 import PropTypes from 'prop-types';
 
 class NewTicketControl extends React.Component{

@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import TicketList from './TicketList';
-import NewTicketControl from './NewTicketControl';
-import Admin from './Admin';
-import Error404 from './Error404';
+import Header from './home/Header';
+import Footer from './home/Footer';
+import TicketList from './home/TicketList';
+import NewTicketControl from './ticket/NewTicketControl';
+import EasterEgg from './ux/EasterEgg';
+import Error404 from './admin/Error404';
 import Moment from 'moment';
+import Admin from './admin/Admin';
 
 import { Link } from 'react-router-dom';
 import { Switch, Route} from 'react-router-dom';
@@ -50,8 +51,9 @@ class App extends React.Component {
   render(){
     return(
       <div>
-        <style jsx>{`
-          *{
+        <style jsx>
+          {`
+            *{
               margin:0px;
               padding:0px;
               font-family: helvetica;
@@ -60,22 +62,14 @@ class App extends React.Component {
             body{
               background-color: white;
             }
-            #footer{
-              position: fixed;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              background-color: #FE5000;
-              text-align: center;
-              height: 38px;
-            }
           `}
         </style>
           <Header/>
           <Switch>
             <Route exact path='/' render={()=><TicketList ticketList={this.state.masterTicketList} />} />
+            <Route path = '/admin' component={Admin}/>
             <Route path='/newticket' render={()=><NewTicketControl onNewTicketCreation={this.handleAddingNewTicketToList} />} />
-            <Route path='/admin' component={Admin}/>
+            <Route path='/easteregg' component={EasterEgg}/>
             <Route component={Error404}/>
           </Switch>
           <Footer/>

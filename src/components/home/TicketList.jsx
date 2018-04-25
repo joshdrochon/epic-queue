@@ -1,5 +1,5 @@
 import React from 'react';
-import Ticket from './Ticket';
+import Ticket from '../ticket/Ticket';
 import PropTypes from 'prop-types';
 
 function TicketList(props){
