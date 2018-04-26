@@ -3,7 +3,6 @@ import Ticket from '../ticket/Ticket';
 import PropTypes from 'prop-types';
 
 const TicketList = (props) => {
-  console.log(props.ticketList);
   console.log(typeof(ticketList));
   return(
     <div>

@@ -4,12 +4,10 @@ import TicketList from '../home/TicketList';
 import TicketDetails from './TicketDetails';
 
 const Admin = (props) => {
-  console.log('Props' + props);
-  //console logs go here if need
   let optionalSelectedTicketContent = null;
   if(props.selectedTicket != null){
     console.log(props.selectedTicket);
-    optionalSelectedTicketContent = <TicketDetails />
+    optionalSelectedTicketContent = <TicketDetails selectedTicket={props.selectedTicket}/>;
   }
 
   return (

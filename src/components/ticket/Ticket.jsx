@@ -36,7 +36,6 @@ const Ticket = (props) => {
     <div className='primary' id='ticket'>
       <h2>{props.name}</h2>
       <h3>{props.location}</h3>
-      <p><em>{props.issue}</em></p>
       <p>{props.formattedWaitTime} ago</p>
     </div>
   </div>;
