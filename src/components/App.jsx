@@ -19,7 +19,7 @@ class App extends React.Component {
       masterTicketList: []
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
-    this.timer = this.timer.bind(this);
+    // this.timer = this.timer.bind(this);
   }
 
   componentDidMount(){
@@ -29,15 +29,15 @@ class App extends React.Component {
     );
   }
 
-  timer(timePassed){
-    timePassed = document.getElementById('time-display');
-    if(timePassed == 'a minute'){
-      timePassed.classList.add('warning');
-    }else{
-      timePassed.classList.add('danger');
-    }
-    return timePassed;
-  }
+  // timer(timePassed){
+  //   timePassed = document.getElementById('time-display');
+  //   if(timePassed == 'a minute'){
+  //     timePassed.classList.add('warning');
+  //   }else{
+  //     timePassed.classList.add('danger');
+  //   }
+  //   return timePassed;
+  // }
 
   componentWillUnmount(){
     clearInterval(this.waitTimeUpdateTimer);
@@ -46,7 +46,7 @@ class App extends React.Component {
   updateTicketElapsedWaitTime(){
     let newMasterTicketList = this.state.masterTicketList.slice();
     newMasterTicketList.forEach((ticket) =>
-      this.timer(ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true))
+      ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
     );
     this.setState({masterTicketList: newMasterTicketList})
   }
@@ -71,15 +71,6 @@ class App extends React.Component {
             }
             body{
               background-color: white;
-            }
-            .primary{
-              color: #428bca;
-            }
-            .warning{
-              color: #f0ad4e;
-            }
-            .danger{
-              #d9534f;
             }
           `}
         </style>

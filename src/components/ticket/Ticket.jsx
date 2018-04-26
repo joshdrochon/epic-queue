@@ -8,7 +8,6 @@ function Ticket(props){
           #ticket{
             width: 40%;
             border: 1px solid black;
-            background-color: dodgerblue;
             margin: auto;
             margin-top: 20px;
             text-align: center;
@@ -23,13 +22,22 @@ function Ticket(props){
             box-shadow: 10px 5px 5px gray;
             cursor: pointer;
           }
+          .primary{
+            background-color: #dodgerblue;
+          }
+          .warning{
+            background-color: #f0ad4e;
+          }
+          .danger{
+            background-color: #d9534f;
+          }
         `}
       </style>
-      <div id='ticket'>
+      <div className='danger' id='ticket'>
         <h2>{props.name}</h2>
         <h3>{props.location}</h3>
         <p><em>{props.issue}</em></p>
-        <p id='time-display'>{props.formattedWaitTime} ago</p>
+        <p>{props.formattedWaitTime} ago</p>
       </div>
     </div>
   );
@@ -39,7 +47,8 @@ Ticket.propTypes = {
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   issue: PropTypes.string.isRequired,
-  formattedWaitTime: PropTypes.string.isRequired
+  formattedWaitTime: PropTypes.string.isRequired,
+  className: PropTypes.string
 };
 
 export default Ticket;

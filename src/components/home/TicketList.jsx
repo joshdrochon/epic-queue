@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 function TicketList(props){
   console.log(props.ticketList);
+  console.log(typeof(ticketList));
   return(
     <div>
       <style>{`
@@ -21,6 +22,7 @@ function TicketList(props){
         location={ticket.location}
         issue={ticket.issue}
         formattedWaitTime={ticket.formattedWaitTime}
+        className={ticket.className}
         key={ticket.id}/>
       )}
       <p id="stats">View today's statistics</p>
