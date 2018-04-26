@@ -23,6 +23,7 @@ function TicketList(props){
         issue={ticket.issue}
         formattedWaitTime={ticket.formattedWaitTime}
         className={ticket.className}
+        currentRouterPath={props.currentRouterPath}
         key={ticket.id}/>
       )}
       <p id="stats">View today's statistics</p>
@@ -31,7 +32,8 @@ function TicketList(props){
 }
 
 TicketList.propTypes = {
-  ticketList: PropTypes.array
+  ticketList: PropTypes.array,
+  currentRouterPath: PropTypes.string
 };
 
 export default TicketList;

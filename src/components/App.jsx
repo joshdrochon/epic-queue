@@ -15,8 +15,10 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
+    //one state object, composed of two state slices
     this.state = {
-      masterTicketList: []
+      masterTicketList: [],
+      selectedTicket: null
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
     // this.timer = this.timer.bind(this);
@@ -61,7 +63,7 @@ class App extends React.Component {
   render(){
     return(
       <div>
-        <style jsx>
+        <style global jsx>
           {`
             *{
               margin:0px;
@@ -71,6 +73,10 @@ class App extends React.Component {
             }
             body{
               background-color: white;
+            }
+            a{
+              color: white;
+              text-decoration: none;
             }
           `}
         </style>

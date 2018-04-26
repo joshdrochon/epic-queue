@@ -21,15 +21,11 @@ function Header(){
   return(
     <div>
       <style>{`
-          #queue{
-            margin-top: auto;
-            margin-bottom: auto;
-            color: white;
-          }
-          a{
-            color: white;
-            text-decoration: none;
-          }
+        #queue{
+          margin-top: auto;
+          margin-bottom: auto;
+          color: white;
+        }
       `}
       </style>
       <div style={styles.header}>
