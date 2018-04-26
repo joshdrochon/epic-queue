@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Ticket(props){
+const Ticket = (props) => {
   const ticketInformation =
   <div>
     <style jsx>{`
@@ -23,7 +23,7 @@ function Ticket(props){
           cursor: pointer;
         }
         .primary{
-          background-color: #dodgerblue;
+          background-color: dodgerblue;
         }
         .warning{
           background-color: #f0ad4e;
@@ -33,7 +33,7 @@ function Ticket(props){
         }
       `}
     </style>
-    <div className='danger' id='ticket'>
+    <div className='primary' id='ticket'>
       <h2>{props.name}</h2>
       <h3>{props.location}</h3>
       <p><em>{props.issue}</em></p>
@@ -43,7 +43,7 @@ function Ticket(props){
 
   if(props.currentRouterPath == '/admin'){
     return (
-      <div onClick={() => {console.log('Hey there, ' + props.name);}}>
+      <div onClick={() => {props.onTicketSelection({name: props.name, location: props.location, issue: props.issue, formattedWaitTime: props.formattedWaitTime});}}>
         {ticketInformation}
       </div>
     );
@@ -61,8 +61,9 @@ Ticket.propTypes = {
   location: PropTypes.string.isRequired,
   issue: PropTypes.string.isRequired,
   formattedWaitTime: PropTypes.string.isRequired,
+  className: PropTypes.string,
   currentRouterPath: PropTypes.string,
-  className: PropTypes.string
+  onTicketSelection: PropTypes.func
 };
 
 export default Ticket;

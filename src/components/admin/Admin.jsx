@@ -3,18 +3,23 @@ import PropTypes from 'prop-types';
 import TicketList from '../home/TicketList';
 import TicketDetails from './TicketDetails';
 
-function Admin(props){
+const Admin = (props) => {
+  //console logs go here if need
   return (
     <div>
       <TicketDetails />
-      <TicketList ticketList={props.ticketList} currentRouterPath={props.currentRouterPath} />
+      <TicketList
+        ticketList={props.ticketList}
+        currentRouterPath={props.currentRouterPath}
+        onTicketSelection={props.onTicketSelection} />
     </div>
   );
 }
 
 Admin.propTypes = {
   ticketList: PropTypes.array,
-  currentRouterPath: PropTypes.string.isRequired
+  currentRouterPath: PropTypes.string.isRequired,
+  onTicketSelection: PropTypes.func.isRequired
 }
 
 export default Admin;

@@ -21,8 +21,7 @@ const styles = {
   }
 }
 
-function Admin(){
-  console.log('Hey now brown cow');
+const EasterEgg = () => {
   return(
     <div>
       <style jsx>{`
@@ -76,4 +75,4 @@ function Admin(){
   )
 }
 
-export default Admin;
+export default EasterEgg;

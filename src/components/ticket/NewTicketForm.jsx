@@ -17,14 +17,14 @@ let styles = {
   }
 }
 
-function NewTicketForm(props){
+const NewTicketForm = (props) => {
   let name = null;
   let location = null;
   let issue = null;
 
   function handleNewTicketFormSubmission(e){
     e.preventDefault();
-    props.onNewTicketCreation({name: name.value, location: location.value, issue: issue.value, id: v4(), timeOpen: new Moment(), className: 'danger'});
+    props.onNewTicketCreation({name: name.value, location: location.value, issue: issue.value, id: v4(), timeOpen: new Moment(), className: 'primary'});
     name.value = '';
     location.value = '';
     issue.value = '';

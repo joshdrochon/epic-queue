@@ -17,7 +17,7 @@ let styles = {
   }
 }
 
-function Header(){
+const Header = () => {
   return(
     <div>
       <style>{`

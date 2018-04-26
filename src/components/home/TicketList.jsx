@@ -2,7 +2,7 @@ import React from 'react';
 import Ticket from '../ticket/Ticket';
 import PropTypes from 'prop-types';
 
-function TicketList(props){
+const TicketList = (props) => {
   console.log(props.ticketList);
   console.log(typeof(ticketList));
   return(
@@ -24,6 +24,7 @@ function TicketList(props){
         formattedWaitTime={ticket.formattedWaitTime}
         className={ticket.className}
         currentRouterPath={props.currentRouterPath}
+        onTicketSelection={props.onTicketSelection}
         key={ticket.id}/>
       )}
       <p id="stats">View today's statistics</p>
@@ -33,7 +34,8 @@ function TicketList(props){
 
 TicketList.propTypes = {
   ticketList: PropTypes.array,
-  currentRouterPath: PropTypes.string
+  currentRouterPath: PropTypes.string,
+  onTicketSelection: PropTypes.func
 };
 
 export default TicketList;

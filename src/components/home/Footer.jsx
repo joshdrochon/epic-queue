@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Footer(){
+const Footer = () => {
   const styles = {
     link: {
       marginTop: '10px',

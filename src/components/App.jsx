@@ -21,7 +21,7 @@ class App extends React.Component {
       selectedTicket: null
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
-    // this.timer = this.timer.bind(this);
+    this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(this);
   }
 
   componentDidMount(){
@@ -30,16 +30,6 @@ class App extends React.Component {
       60000
     );
   }
-
-  // timer(timePassed){
-  //   timePassed = document.getElementById('time-display');
-  //   if(timePassed == 'a minute'){
-  //     timePassed.classList.add('warning');
-  //   }else{
-  //     timePassed.classList.add('danger');
-  //   }
-  //   return timePassed;
-  // }
 
   componentWillUnmount(){
     clearInterval(this.waitTimeUpdateTimer);
@@ -58,6 +48,13 @@ class App extends React.Component {
     newTicket.formattedWaitTime = (newTicket.timeOpen).fromNow(true);
     newMasterTicketList.push(newTicket);
     this.setState({masterTicketList: newMasterTicketList});
+  }
+
+  handleChangingSelectedTicket(ticket){
+    this.setState({selectedTicket: ticket});
+    console.log('You have selected ' + this.state.selectedTicket.name + "'s ticket.");
+    console.log(this.state.selectedTicket.issue);
+    console.log(this.state.selectedTicket.location);
   }
 
   render(){
@@ -83,7 +80,7 @@ class App extends React.Component {
           <Header/>
           <Switch>
             <Route exact path ='/' render={()=><TicketList ticketList={this.state.masterTicketList} />} />
-            <Route path='/admin' render={(props)=><Admin ticketList={this.state.masterTicketList} currentRouterPath={props.location.pathname} />} />
+            <Route path='/admin' render={(props)=><Admin ticketList={this.state.masterTicketList} currentRouterPath={props.location.pathname} onTicketSelection={this.handleChangingSelectedTicket} />} />
             <Route path='/newticket' render={()=><NewTicketControl onNewTicketCreation={this.handleAddingNewTicketToList} />} />
             <Route path='/easteregg' component={EasterEgg}/>
             <Route component={Error404}/>

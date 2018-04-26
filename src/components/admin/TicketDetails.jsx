@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TicketDetails(){
+const TicketDetails = () => {
   return(
     <h2>Ticket details works!</h2>
   );

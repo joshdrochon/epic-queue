@@ -12,7 +12,7 @@ let styles = {
   marginTop: '200px'
 }
 
-function ConfirmationQuestions(props){
+const ConfirmationQuestions = (props) => {
   return(
     <div style={styles}>
       <style>{`
