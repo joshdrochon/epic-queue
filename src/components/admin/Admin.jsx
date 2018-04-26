@@ -4,14 +4,22 @@ import TicketList from '../home/TicketList';
 import TicketDetails from './TicketDetails';
 
 const Admin = (props) => {
+  console.log('Props' + props);
   //console logs go here if need
+  let optionalSelectedTicketContent = null;
+  if(props.selectedTicket != null){
+    console.log(props.selectedTicket);
+    optionalSelectedTicketContent = <TicketDetails />
+  }
+
   return (
     <div>
-      <TicketDetails />
+      <h2>Admin</h2>
+      {optionalSelectedTicketContent}
       <TicketList
         ticketList={props.ticketList}
         currentRouterPath={props.currentRouterPath}
-        onTicketSelection={props.onTicketSelection} />
+        onTicketSelection={props.onTicketSelection}/>
     </div>
   );
 }
@@ -19,7 +27,8 @@ const Admin = (props) => {
 Admin.propTypes = {
   ticketList: PropTypes.array,
   currentRouterPath: PropTypes.string.isRequired,
-  onTicketSelection: PropTypes.func.isRequired
+  onTicketSelection: PropTypes.func.isRequired,
+  selectedTicket: PropTypes.object
 }
 
 export default Admin;

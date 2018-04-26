@@ -50,6 +50,7 @@ const Ticket = (props) => {
   } else {
     return(
       <div>
+        <p>If you see this while in /admin, something went terribly wrong</p>
         {ticketInformation}
       </div>
     );

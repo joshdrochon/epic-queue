@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const bloodOrange = "#FE5000";
+const bloodOrange = '#FE5000';
 let styles = {
   header: {
-    display: "grid",
+    display: 'grid',
     backgroundColor: bloodOrange,
-    height: "48",
-    gridTemplateColumns: "1fr 4fr 1fr 4fr 1fr",
-    margin: "auto",
-    textAlign: "center"
+    height: '48',
+    gridTemplateColumns: '1fr 4fr 1fr 4fr 1fr',
+    margin: 'auto',
+    textAlign: 'center'
   },
   headerText: {
-    margin: "auto",
-    textAlign: "center"
+    margin: 'auto',
+    textAlign: 'center'
   }
 }
 
@@ -29,11 +29,11 @@ const Header = () => {
       `}
       </style>
       <div style={styles.header}>
-        <p style={styles.headerText}><Link to="/">Home</Link></p>
+        <p style={styles.headerText}><Link to='/'>Home</Link></p>
         <br/>
-        <h2 id="queue">Queue</h2>
+        <h2 id='queue'>Queue</h2>
         <br/>
-        <p style={styles.headerText}><Link to="/newticket">Add ticket</Link></p>
+        <p style={styles.headerText}><Link to='/newticket'>Add ticket</Link></p>
       </div>
     </div>
   )

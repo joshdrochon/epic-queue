@@ -52,9 +52,7 @@ class App extends React.Component {
 
   handleChangingSelectedTicket(ticket){
     this.setState({selectedTicket: ticket});
-    console.log('You have selected ' + this.state.selectedTicket.name + "'s ticket.");
-    console.log(this.state.selectedTicket.issue);
-    console.log(this.state.selectedTicket.location);
+    console.log('You have selected ' + this.state.selectedTicket.name + "'s ticket, who currently on " + this.state.selectedTicket.location + ' has the following issue: ' + this.state.selectedTicket.issue + ' as of ' + this.state.selectedTicket.formattedWaitTime + ' ago.');
   }
 
   render(){
@@ -80,7 +78,9 @@ class App extends React.Component {
           <Header/>
           <Switch>
             <Route exact path ='/' render={()=><TicketList ticketList={this.state.masterTicketList} />} />
-            <Route path='/admin' render={(props)=><Admin ticketList={this.state.masterTicketList} currentRouterPath={props.location.pathname} onTicketSelection={this.handleChangingSelectedTicket} />} />
+            <Route path='/admin' render={(props)=><Admin ticketList={this.state.masterTicketList} currentRouterPath={props.location.pathname}
+            onTicketSelection={this.handleChangingSelectedTicket}
+            selectedTicket={this.state.selectedTicket}/>} />
             <Route path='/newticket' render={()=><NewTicketControl onNewTicketCreation={this.handleAddingNewTicketToList} />} />
             <Route path='/easteregg' component={EasterEgg}/>
             <Route component={Error404}/>

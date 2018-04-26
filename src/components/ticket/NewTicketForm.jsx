@@ -86,16 +86,16 @@ const NewTicketForm = (props) => {
           type='text'
           id='name'
           placeholder='Name'
-          ref={(input) => {name = input;}}/>
+          ref={(input) => {name = input;}} required />
         <input
           type='text'
           id='location'
           placeholder='Location'
-          ref={(input) => {location = input;}}/>
+          ref={(input) => {location = input;}} required />
         <textarea
           id='issue'
           placeholder="What's going on?"
-          ref={(textarea) => {issue = textarea;}}/>
+          ref={(textarea) => {issue = textarea;}} required />
         <button id='btn' type='submit'>Help!</button>
       </form>
     </div>
