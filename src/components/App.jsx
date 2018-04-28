@@ -8,6 +8,7 @@ import Error404 from './admin/Error404';
 import Moment from 'moment';
 import Admin from './admin/Admin';
 
+import { v4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import { Switch, Route} from 'react-router-dom';
 
@@ -17,7 +18,7 @@ class App extends React.Component {
     super(props);
     //one state object, composed of two state slices
     this.state = {
-      masterTicketList: [],
+      masterTicketList: {},
       selectedTicket: null
     };
     this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
@@ -36,26 +37,29 @@ class App extends React.Component {
   }
 
   updateTicketElapsedWaitTime(){
-    let newMasterTicketList = this.state.masterTicketList.slice();
-    newMasterTicketList.forEach((ticket) =>
-      ticket.formattedWaitTime = (ticket.timeOpen).fromNow(true)
-    );
-    this.setState({masterTicketList: newMasterTicketList})
-  }
-
-  handleAddingNewTicketToList(newTicket){
-    let newMasterTicketList = this.state.masterTicketList.slice();
-    newTicket.formattedWaitTime = (newTicket.timeOpen).fromNow(true);
-    newMasterTicketList.push(newTicket);
+    let newMasterTicketList = Object.assign({}, this.state.masterTicketList);
+    Object.keys(newMasterTicketList).forEach(ticketId => {
+      newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true);
+    });
     this.setState({masterTicketList: newMasterTicketList});
   }
 
-  handleChangingSelectedTicket(ticket){
-    this.setState({selectedTicket: ticket});
+  handleAddingNewTicketToList(newTicket){
+    let newTicketId = v4();
+    let newMasterTicketList = Object.assign({}, this.state.masterTicketList, {
+      [newTicketId]: newTicket
+    });
+    newMasterTicketList[newTicketId].formattedWaitTime = newMasterTicketList[newTicketId].timeOpen.fromNow(true);
+    this.setState({masterTicketList: newMasterTicketList});
+  }
+
+  handleChangingSelectedTicket(ticketId){
+    this.setState({selectedTicket: ticketId});
     console.log('You have selected ' + this.state.selectedTicket.name + "'s ticket, who currently on " + this.state.selectedTicket.location + ' has the following issue: ' + this.state.selectedTicket.issue + ' as of ' + this.state.selectedTicket.formattedWaitTime + ' ago.');
   }
 
   render(){
+    console.log(this.state.masterTicketList);
     return(
       <div>
         <style global jsx>

@@ -3,7 +3,6 @@ import Ticket from '../ticket/Ticket';
 import PropTypes from 'prop-types';
 
 const TicketList = (props) => {
-  console.log(typeof(ticketList));
   return(
     <div>
       <style>{`
@@ -15,24 +14,26 @@ const TicketList = (props) => {
         }
       `}
       </style>
-      {props.ticketList.map((ticket)=>
-      <Ticket
-        name={ticket.name}
-        location={ticket.location}
-        issue={ticket.issue}
-        formattedWaitTime={ticket.formattedWaitTime}
-        className={ticket.className}
-        currentRouterPath={props.currentRouterPath}
-        onTicketSelection={props.onTicketSelection}
-        key={ticket.id}/>
-      )}
-      <p id="stats">View today's statistics</p>
+      {Object.keys(props.ticketList).map(function(ticketId){
+        let ticket = props.ticketList[ticketId];
+        return <Ticket
+          name={ticket.name}
+          location={ticket.location}
+          issue={ticket.issue}
+          formattedWaitTime={ticket.formattedWaitTime}
+          className={ticket.className}
+          currentRouterPath={props.currentRouterPath}
+          key={ticketId}
+          ticketId={ticketId}
+          onTicketSelection={props.onTicketSelection}/>;
+      })}
+        <p id='stats'>View today's statistics</p>
     </div>
   );
 }
 
 TicketList.propTypes = {
-  ticketList: PropTypes.array,
+  ticketList: PropTypes.object,
   currentRouterPath: PropTypes.string,
   onTicketSelection: PropTypes.func
 };
